@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main &mdash; документация Final project - Sorting 0.0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=ba58aea8"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=29b1f277"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Final project - Sorting
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">final</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Final project - Sorting</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Код модуля</a></li>
+      <li class="breadcrumb-item active">main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код main</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sort_module.bubble_sort</span> <span class="kn">import</span> <span class="n">bubble_sort</span>
+<span class="kn">from</span> <span class="nn">sort_module.counting_sort</span> <span class="kn">import</span> <span class="n">counting_sort</span>
+<span class="kn">from</span> <span class="nn">sort_module.quick_sort</span> <span class="kn">import</span> <span class="n">quick_sort</span>
+<span class="kn">from</span> <span class="nn">sort_module.radix_sort</span> <span class="kn">import</span> <span class="n">radix_sort</span>
+<span class="kn">from</span> <span class="nn">sup_module.support</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">9000</span><span class="p">)</span>  <span class="c1"># Увеличение глубины рекурсии</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Основной модуль программы сортировка</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># Тесты</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="n">test_input_list</span><span class="p">([])</span> <span class="o">==</span> <span class="s1">&#39;Данных нет, список пустой&#39;</span>
+    <span class="k">assert</span> <span class="n">test_input_list</span><span class="p">([</span><span class="mi">224</span><span class="p">,</span> <span class="mi">759</span><span class="p">,</span> <span class="mi">384</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">369</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">562</span><span class="p">,</span> <span class="mi">677</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;В данных присутствует string&#39;</span>
+    <span class="k">assert</span> <span class="n">test_input_list</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">759</span><span class="p">,</span> <span class="mi">384</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">369</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">562</span><span class="p">,</span> <span class="mi">677</span><span class="p">,</span> <span class="mi">220</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;В данных присутствует float&#39;</span>
+    <span class="k">assert</span> <span class="n">test_input_list</span><span class="p">([</span><span class="mi">224</span><span class="p">,</span> <span class="mi">759</span><span class="p">,</span> <span class="o">-</span><span class="mi">384</span><span class="p">,</span> <span class="o">-</span><span class="mi">109</span><span class="p">,</span> <span class="mi">369</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="o">-</span><span class="mi">345</span><span class="p">,</span> <span class="mi">562</span><span class="p">,</span> <span class="mi">677</span><span class="p">,</span> <span class="mi">220</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;Данные валидны&#39;</span>
+
+
+<span class="c1">###################################################</span>
+<div class="viewcode-block" id="click_button">
+<a class="viewcode-back" href="../main.html#main.click_button">[документация]</a>
+<span class="k">def</span> <span class="nf">click_button</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Основная функция, в которой реализована логика работы интерфейса.</span>
+<span class="sd">    В функции вызываются основные функции сортировки и связывая их с элементами дизайна.</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">label_error</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">label_result</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">main_entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">label_error</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Вы не ввели список чисел для сортировки!&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">list_input</span> <span class="o">=</span> <span class="n">main_entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+        <span class="n">list_output</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_input</span><span class="p">:</span>
+                <span class="n">list_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">label_error</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Данные не корректные введите целые числа через запятую&#39;</span>
+        <span class="n">list_output</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_input</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">test_input_list</span><span class="p">(</span><span class="n">list_output</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Данные валидны&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">combobox</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">label_error</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Вы не выбрали сортировку&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">combobox</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Bubble sort&#39;</span><span class="p">:</span>
+                    <span class="n">lis_sorted_bubble</span><span class="p">,</span> <span class="n">bubble_time</span> <span class="o">=</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="n">list_output</span><span class="p">)</span>
+                    <span class="n">label_result</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">toFixed</span><span class="p">(</span><span class="n">bubble_time</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s2"> сек&quot;</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">list_output</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">main_entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">combobox</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Counting sort&#39;</span><span class="p">:</span>
+                    <span class="n">lis_sorted_bubble</span><span class="p">,</span> <span class="n">bubble_time</span> <span class="o">=</span> <span class="n">counting_sort</span><span class="p">(</span><span class="n">list_output</span><span class="p">)</span>
+                    <span class="n">label_result</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">toFixed</span><span class="p">(</span><span class="n">bubble_time</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s2"> сек&quot;</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">list_output</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">combobox</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Quick sort&#39;</span><span class="p">:</span>
+                    <span class="n">lis_sorted_bubble</span><span class="p">,</span> <span class="n">bubble_time</span> <span class="o">=</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">list_output</span><span class="p">)</span>
+                    <span class="n">label_result</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">toFixed</span><span class="p">(</span><span class="n">bubble_time</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s2"> сек&quot;</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">list_output</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">combobox</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Radix sort&#39;</span><span class="p">:</span>
+                    <span class="n">lis_sorted_bubble</span><span class="p">,</span> <span class="n">bubble_time</span> <span class="o">=</span> <span class="n">radix_sort</span><span class="p">(</span><span class="n">list_output</span><span class="p">)</span>
+                    <span class="n">label_result</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">toFixed</span><span class="p">(</span><span class="n">bubble_time</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s2"> сек&quot;</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+                    <span class="n">main_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">list_output</span><span class="p">)</span></div>
+
+
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Алгоритмы - Итог: Анатолий Чуриков&quot;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;700x260+800+300&quot;</span><span class="p">)</span>
+<span class="n">root</span><span class="p">[</span><span class="s1">&#39;bg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;#ced9e0&#39;</span>
+<span class="n">root</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">btn</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Расчет&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">btn</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">click_button</span>
+<span class="n">btn</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">label1</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Выберите алгоритм: &quot;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#ced9e0&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">))</span>
+<span class="n">label1</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">sort_variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bubble sort&quot;</span><span class="p">,</span> <span class="s2">&quot;Counting sort&quot;</span><span class="p">,</span> <span class="s2">&quot;Quick sort&quot;</span><span class="p">,</span> <span class="s2">&quot;Radix sort&quot;</span><span class="p">]</span>
+<span class="n">combobox</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Combobox</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">sort_variables</span><span class="p">)</span>
+<span class="n">combobox</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">190</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">main_entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">()</span>
+<span class="n">main_entry</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">label_result</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;!!!!!!!!!!!!&quot;</span><span class="p">,</span>
+                         <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">),</span>
+                         <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;#0f7520&quot;</span><span class="p">,</span>
+                         <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#ced9e0&#39;</span><span class="p">)</span>
+<span class="n">label_result</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">280</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">label_error</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;#f00&quot;</span><span class="p">,</span>
+                        <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#ced9e0&#39;</span><span class="p">,</span>
+                        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">))</span>
+<span class="n">label_error</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">490</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2024, Anatoliy Churikov. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
